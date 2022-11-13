@@ -15,14 +15,14 @@ const scene = new THREE.Scene()
 // const geometry = new THREE.BoxBufferGeometry(1, 1, 1, 4, 4, 4)
 const geometry = new THREE.BufferGeometry()
 
-const positionsArray = new Float32Array([
-    0, 0, 0,
-    0, 1, 0,
-    1, 0, 0
-])
+const count = 50
+const positionArray = new Float32Array(count * 3 * 3)
 
-const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3)
+for(let i = 0; i < count * 3 * 3; i++) {
+    positionArray[i] = Math.random() - 0.5
+}
 
+const positionsAttribute = new THREE.BufferAttribute(positionArray, 3)
 geometry.setAttribute('position', positionsAttribute)
 
 const material = new THREE.MeshBasicMaterial({ 
